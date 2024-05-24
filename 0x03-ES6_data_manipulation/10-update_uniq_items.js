@@ -1,13 +1,14 @@
-const updateUniqueItems = (items) => {
-  if (!(items instanceof Map)) {
-    throw new Error("Cannot process");
-  }
-  for (const [k, v] of items.entries()) {
-    if (v === 1) {
-      items.set(k, 100);
-    }
-  }
-  return items;
-};
+export default function updateUniqueItems(map) {
+  const list = map;
 
-export default updateUniqueItems;
+  if (list instanceof Map) {
+    for (const [key, value] of list) {
+      if (value === 1) {
+        list.set(key, 100);
+      }
+    }
+  } else {
+    throw new Error('Cannot process');
+  }
+  return list;
+}
